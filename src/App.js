@@ -1,24 +1,70 @@
-import logo from './logo.svg';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Issue from "./components/Issue";
+import Home from "./components/Home";
+import NavBar from "./components/NavBar";
+import NotFound from "./components/NotFound";
+import CustomBtn from './components/CustomBtn';
+import Wallet from './components/Wallet';
+import Rewards from './components/Rewards';
+
+const user = "Ryan"
+
+const theme = createTheme({
+    palette: {  
+      primary: {
+        main:"#2e1667",
+      },
+      secondary: {
+        main:"#c7d8ed",
+      },
+    },
+    typography: {
+      fontFamily: [
+        'Roboto'
+      ],
+      h4: {
+        fontWeight: 600,
+        fontSize: 28,
+        lineHeight: '2rem',
+        },
+      h5: {
+        fontWeight: 100,
+        lineHeight: '2rem',
+      },
+    },
+  });
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    return (
+        <Router>
+            <div className="App">
+                <ThemeProvider theme={theme}>
+                    <NavBar user ={user} />
+                        <Switch>
+                            <Route exact path="/">
+                                <Home user={user} />
+                            </Route>
+                            <Route exact path = "/issue">
+                                <Issue />
+                            </Route>
+                            <Route exact path = "/wallet">
+                                <Wallet />
+                            </Route>
+                            <Route exact path = "/rewards">
+                              <Rewards />
+                            </Route>
+                            <Route path="*">
+                                <NotFound />
+                            </Route>
+
+                        </Switch>
+
+                </ThemeProvider>
+
+            </div> 
+     </Router>
   );
 }
 

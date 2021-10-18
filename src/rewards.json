@@ -1,0 +1,32 @@
+[
+    {
+	"name": "Ikea",
+	"value": "10",
+	"points": "10"
+    },
+    {
+    "name": "NTUC",
+    "value": "20",
+    "points": "20"
+    },
+    {
+    "name": "Shopee",
+    "value": "30",
+    "points": "300"
+    },
+    {
+    "name": "Sheng Siong",
+    "value": "10",
+    "points": "100"
+    },
+    {
+    "name": "Amazon",
+    "value": "20",
+    "points": "200"
+    },
+    {
+    "name": "TMall",
+    "value": "30",
+    "points": "300"
+    }
+]
