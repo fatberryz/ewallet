@@ -69,9 +69,7 @@ function Wallet() {
                         <Grid>
                             <Card>
                                 <CardContent>
-                                    Voucher Name: <b>{obj.voucher}</b>
-                                </CardContent>
-                                <CardContent>
+                                    Voucher Name: <b>{obj.voucher}</b> <br/>
                                     Points used to redeem voucher: <b>{obj.point}</b>
                                 </CardContent>
                             </Card>

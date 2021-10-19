@@ -62,7 +62,7 @@ function Rewards() {
                             Voucher Name: <b>{obj.name}</b> <br />
                             Value of Voucher: <b>{obj.value}</b> <br />
                             Points needed to redeem voucher: <b>{obj.points}</b> <br />
-                            {points > obj.points ?
+                            {points >= obj.points ?
                             <Button onClick={() => handleRedeem(obj.name, obj.points)}> Redeem Voucher </Button>                         
                         : <h4 style={{ color: 'red' }}> Insufficient points to redeem voucher</h4>}
 
