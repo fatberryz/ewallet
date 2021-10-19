@@ -36,14 +36,14 @@ const Issue = () => {
                     type="text"
                     required
                     value={receiver}
-                    onChange={(e) => setReceiver(e.target.value)}
+                    onChange={(e) => setReceiver(e.target.value.trim())}
                 />
                 <label> Number of Points:</label>
                 <input
                     type="text"
                     required
                     value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
+                    onChange={(e) => setAmount(e.target.value.trim())}
                 />
 
                 <button>Issue now</button>
