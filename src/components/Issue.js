@@ -17,6 +17,7 @@ const Issue = () => {
                 // handle success
                 console.log(response.data);
                 // add progress bar in
+                alert("Points have been issued successfully!")
             })
             .catch(function (error) {
                 // handle error
