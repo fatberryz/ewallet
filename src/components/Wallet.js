@@ -2,14 +2,25 @@ import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
+import {makeStyles} from "@material-ui/core/styles"; 
+
+const useStyles = makeStyles({
+    root: {
+    },
+    voucher: {
+        border: "1px solid",
+        borderColor: 'blue'
+    }
+})
 
 function Wallet() {
     const [points, setPoints] = useState(0);
     const [vouchers, setVouchers] = useState([]);
+    const classes = useStyles();
+    const user = "Ryan";
 
     useEffect(() => {
         const axios = require('axios');
-        const user = "Ryan";
         // to get current points of the user
         axios.get('http://18.136.104.201:9090/getRewardState')
             .then(function (response) {
@@ -59,21 +70,21 @@ function Wallet() {
 
     return (
         <div>
-            <Card variant="outlined">
-                <h1>Ryan</h1>
+            <Card className = {classes.root} variant="outlined">
+                <h1>{user}</h1>
                 <h2> Available Points: {points}</h2>
             </Card>
             {vouchers.length>0 ?
                 <Grid justify="center" alignItems="center">
                     {vouchers.map(obj =>
                         <Grid>
-                            <Card>
-                                <CardContent>
-                                    Voucher Name: <b>{obj.voucher}</b> <br/>
-                                    Points used to redeem voucher: <b>{obj.point}</b>
-                                </CardContent>
-                            </Card>
-                        </Grid>
+                        <Card className = {classes.voucher}>
+                            <CardContent>
+                                Voucher Name: <b>{obj.voucher}</b> <br/>
+                                Points used to redeem voucher: <b>{obj.point}</b>
+                            </CardContent>
+                        </Card>
+                    </Grid>
                     )
                     }
                 </Grid>

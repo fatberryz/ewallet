@@ -29,7 +29,7 @@ const Issue = () => {
 
     return (
         <div className="issue">
-            <h2>Transfer Reward Points</h2>
+            <h2>Issue Reward Points</h2>
             <form onSubmit={handleSubmit}>
                 <label>Customer Name</label>
                 <input
