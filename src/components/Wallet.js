@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import config from '../config.json';
 import Grid from '@mui/material/Grid';
 import {makeStyles} from "@material-ui/core/styles"; 
 
@@ -18,11 +19,12 @@ function Wallet() {
     const [vouchers, setVouchers] = useState([]);
     const classes = useStyles();
     const user = "Ryan";
+    const hostName = (config[0].hostName);
 
     useEffect(() => {
         const axios = require('axios');
         // to get current points of the user
-        axios.get('http://18.136.104.201:9090/getRewardState')
+        axios.get(`${hostName}/getRewardState`)
             .then(function (response) {
                 // handle success
                 // console.log(response.data);
@@ -45,7 +47,7 @@ function Wallet() {
             });
         var voucherArray = [];
         // to get vouchers redeemed by the user
-        axios.get('http://18.136.104.201:9090/getRedemptionState')
+        axios.get(`${hostName}/getRedemptionState`)
             .then(function (response) {
                 // handle success
                 // console.log(response.data);

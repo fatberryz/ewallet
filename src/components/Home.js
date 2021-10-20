@@ -1,4 +1,5 @@
 import React from 'react'
+import config from '../config.json';
 import { makeStyles } from '@material-ui/core/styles';
 import {Typography} from '@material-ui/core'
 
@@ -24,6 +25,7 @@ const styles = makeStyles({
 
 function Home(props) {
     const classes = styles(); 
+    console.log(config[0].baseURL);
 
     return (
         <div className={classes.wrapper}>

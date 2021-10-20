@@ -1,15 +1,17 @@
 import { useState } from "react";
+import config from '../config.json';
 import "../index.css";
 
 const Issue = () => {
     const [amount, setAmount] = useState(' ');
     const [receiver, setReceiver] = useState(' ');
+    const hostName = (config[0].hostName);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const transactionDetails = { amount, receiver };
         console.log(transactionDetails)
-        const url = `http://18.136.104.201:9090/issue?customer=${receiver}&&point=${amount}`;
+        const url = `${hostName}/issue?customer=${receiver}&&point=${amount}`;
         console.log(url);
         const axios = require('axios');
         axios.get(url)
