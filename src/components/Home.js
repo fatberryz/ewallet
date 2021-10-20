@@ -1,5 +1,5 @@
-import React from 'react'
-import config from '../config.json';
+import React, {useContext} from 'react';
+import { UserContext } from '../UserContext';
 import { makeStyles } from '@material-ui/core/styles';
 import {Typography} from '@material-ui/core'
 
@@ -23,14 +23,15 @@ const styles = makeStyles({
     },
   })
 
-function Home(props) {
-    const classes = styles(); 
-    console.log(config[0].baseURL);
+  const Home = () => {
+    const user = useContext(UserContext);
+    console.log(user);
+    const classes = styles()
 
     return (
         <div className={classes.wrapper}>
             <Typography variant="h4" className={classes.bigSpace} color="primary">
-                Hi {props.user}, Welcome Back!
+                Hi {user.name}, Welcome Back!
             </Typography>
             <Typography variant="h5" className={classes.littleSpace} color="primary">
                 Please click on the buttons above to access the various ewallet functions.

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, {useContext, useState, useEffect} from 'react';
+import { UserContext } from '../UserContext';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import config from '../config.json';
@@ -14,11 +15,13 @@ const useStyles = makeStyles({
     }
 })
 
-function Wallet() {
+  const Wallet = () => {
+    const obj = useContext(UserContext);
     const [points, setPoints] = useState(0);
     const [vouchers, setVouchers] = useState([]);
     const classes = useStyles();
-    const user = "Ryan";
+    const user = obj.name;
+    // const user = "Ryan";
     const hostName = (config[0].hostName);
 
     useEffect(() => {

@@ -5,9 +5,9 @@ import Issue from "./components/Issue";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import NotFound from "./components/NotFound";
-import CustomBtn from './components/CustomBtn';
 import Wallet from './components/Wallet';
 import Rewards from './components/Rewards';
+import Login from './components/Login';
 
 const user = "Ryan"
 
@@ -43,6 +43,9 @@ function App() {
                 <ThemeProvider theme={theme}>
                     <NavBar user ={user} />
                         <Switch>
+                            <Route exact path="/login">
+                                <Login />
+                            </Route>
                             <Route exact path="/">
                                 <Home user={user} />
                             </Route>

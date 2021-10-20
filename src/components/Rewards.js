@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext} from 'react';
+import { UserContext } from '../UserContext';
 import rewardsJson from '../rewards.json';
 import config from '../config.json';
 import Button from '@mui/material/Button';
@@ -6,14 +7,16 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 
-function Rewards() {
+const Rewards = () => {
+    const obj = useContext(UserContext);
     const [points, setPoints] = useState(0);
     const hostName = (config[0].hostName);
+    const user = obj.name;
 
 
     const handleRedeem = (name, points) => {
         const axios = require('axios');
-        const url = `${hostName}/redeem?voucher=${name}&&customer=Ryan&&point=${points}`
+        const url = `${hostName}/redeem?voucher=${name}&&customer=${user}&&point=${points}`
         axios.get(url)
         .then(function (response) {
             // handle success
@@ -30,7 +33,6 @@ function Rewards() {
     }
        useEffect(() => {
             const axios = require('axios');
-            const user = "Ryan";
             // to get current points of the user
             axios.get(`${hostName}/getRewardState`)
                 .then(function (response) {

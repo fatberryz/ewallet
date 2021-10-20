@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
-//  import { useState } from 'react';
+import { UserContext } from '../UserContext';
 import CustomBtn from './CustomBtn';
 import logo from '../ewallet.png';
 import {Toolbar, Typography} from '@material-ui/core';
@@ -33,14 +33,10 @@ const styles = makeStyles({
     }
 })
 
-function NavBar(props) {
+const NavBar = () => {
+    const user = useContext(UserContext);
     const classes = styles()
-    // const [currentPage, setState] = useState(false)
 
-    // const handleClick = () => {
-    //     console.log("test test, button clicked.");
-    //     setState(true)
-    // }
     return (
             <Toolbar position="sticky" color="rgba(0, 0, 0, 0.87)" className={classes.bar}>   
                 <img src={logo} className={classes.logo} alt = " "/> 
@@ -56,7 +52,7 @@ function NavBar(props) {
                 <Typography variant="h6" className={classes.menuItem}>
                 <Link to="/rewards">  Claim Rewards </Link>
                 </Typography>
-                <CustomBtn user={props.user} />
+                <CustomBtn user={user.name} />
             </Toolbar>
     )
 }
