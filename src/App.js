@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Issue from "./components/Issue";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
+import NavBarAdmin from "./components/NavBarAdmin";
 import NotFound from "./components/NotFound";
 import Wallet from './components/Wallet';
 import Rewards from './components/Rewards';
@@ -51,6 +52,7 @@ const App = () => {
                                 <Home user ={user} />
                             </Route>
                             <Route exact path = "/issue">
+                                <NavBarAdmin user ="Admin"/>
                                 <Issue />
                             </Route>
                             <Route exact path = "/wallet">

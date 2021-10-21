@@ -28,8 +28,9 @@ const Login = () => {
                 <Link
                     to = "/home"
                 >
-                    Sign in
-                </Link>
+                    Sign in as user
+                </Link> <br/><br/>
+                <Button href = "/issue"> Login as Admin</Button>
             </Paper>
         </Grid>
     )
