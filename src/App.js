@@ -1,3 +1,5 @@
+import React, {useContext} from 'react';
+import { UserContext } from './UserContext';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -8,8 +10,6 @@ import NotFound from "./components/NotFound";
 import Wallet from './components/Wallet';
 import Rewards from './components/Rewards';
 import Login from './components/Login';
-
-const user = "Ryan"
 
 const theme = createTheme({
     palette: {  
@@ -36,7 +36,8 @@ const theme = createTheme({
     },
   });
 
-function App() {
+const App = () => {
+    const user = useContext(UserContext);
     return (
         <Router>
             <div className="App">
