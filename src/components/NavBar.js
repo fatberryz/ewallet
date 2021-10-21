@@ -40,9 +40,9 @@ const NavBar = () => {
     return (
             <Toolbar position="sticky" color="rgba(0, 0, 0, 0.87)" className={classes.bar}>   
                 <img src={logo} className={classes.logo} alt = " "/> 
-                <Typography variant="h6" className={classes.menuItem}>
+                {/* <Typography variant="h6" className={classes.menuItem}>
                     <Link to="/issue"> Issue Points </Link>
-                </Typography>
+                </Typography> */}
                 <Typography variant="h6" className={classes.menuItem}>
                     <Link to="/wallet"> My Account Balance </Link>
                 </Typography>
