@@ -42,22 +42,24 @@ const App = () => {
         <Router>
             <div className="App">
                 <ThemeProvider theme={theme}>
-                    <NavBar user ={user} />
                         <Switch>
-                            <Route exact path="/login">
+                            <Route exact path="/">
                                 <Login />
                             </Route>
-                            <Route exact path="/">
-                                <Home user={user} />
+                            <Route exact path = "/home">
+                                <NavBar user ={user} />
+                                <Home user ={user} />
                             </Route>
                             <Route exact path = "/issue">
                                 <Issue />
                             </Route>
                             <Route exact path = "/wallet">
+                                <NavBar user ={user} />
                                 <Wallet />
                             </Route>
                             <Route exact path = "/rewards">
-                              <Rewards />
+                                <NavBar user ={user} />
+                                <Rewards />
                             </Route>
                             <Route path="*">
                                 <NotFound />
