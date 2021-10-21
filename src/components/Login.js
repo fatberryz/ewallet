@@ -20,7 +20,8 @@ const Login = () => {
                 <TextField 
                     label='Username' 
                     placeholder='Enter username' 
-                    fullWidth required
+                    fullWidth 
+                    required
                     onChange={(e) => user.setName(e.target.value.trim())}
                 />
                 {/* <TextField label='Password' placeholder='Enter password' type='password' fullWidth required/> */}

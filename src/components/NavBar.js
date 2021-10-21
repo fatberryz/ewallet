@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 import CustomBtn from './CustomBtn';
 import logo from '../ewallet.png';
-import {Toolbar, Typography} from '@material-ui/core';
+import {Toolbar, Typography, Button} from '@material-ui/core';
 import {makeStyles} from "@material-ui/core/styles"; 
 
 
@@ -41,9 +41,6 @@ const NavBar = () => {
             <Toolbar position="sticky" color="rgba(0, 0, 0, 0.87)" className={classes.bar}>   
                 <img src={logo} className={classes.logo} alt = " "/> 
                 <Typography variant="h6" className={classes.menuItem}>
-                   <Link to="/"> Home </Link>
-                </Typography>
-                <Typography variant="h6" className={classes.menuItem}>
                     <Link to="/issue"> Issue Points </Link>
                 </Typography>
                 <Typography variant="h6" className={classes.menuItem}>
@@ -51,6 +48,9 @@ const NavBar = () => {
                 </Typography>
                 <Typography variant="h6" className={classes.menuItem}>
                 <Link to="/rewards">  Claim Rewards </Link>
+                </Typography>
+                <Typography variant="h6" className={classes.menuItem}>
+                   <Button href="/"> Sign Out </Button>
                 </Typography>
                 <CustomBtn user={user.name} />
             </Toolbar>
